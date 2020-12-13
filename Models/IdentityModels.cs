@@ -84,5 +84,7 @@ namespace DGSappSem2.Models
         public System.Data.Entity.DbSet<DGSappSem2.Models.GrpRoomReservation> GrpRoomReservations { get; set; }
 
         public System.Data.Entity.DbSet<DGSappSem2.Models.LibraryTimes> LibraryTimes { get; set; }
+
+        public System.Data.Entity.DbSet<DGSappSem2.Models.SchoolDeposit> SchoolDeposits { get; set; }
     }
 }

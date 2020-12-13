@@ -64,6 +64,7 @@ namespace DGSappSem2.Models.Students
 
         [Display(Name = "Upload your study permit")]
         public string StudentPermitURL { get; set; }
+        public string Status { get; set; }
 
 
         [Display(Name = "Allow registration")]

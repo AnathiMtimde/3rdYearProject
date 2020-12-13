@@ -1,5 +1,6 @@
 ﻿using DGSappSem2.Models;
 using DGSappSem2.Models;
+using DGSappSem2.Models.Students;
 using DGSappSem2s.Models;
 using System;
 using System.Collections.Generic;
@@ -70,7 +71,65 @@ namespace DGSappSem2.Models
 
             });
         }
+        public static void SendAcceptanceEmail(Student studentApplication)
+        {
+            var mailTo = new List<MailAddress>();
+            mailTo.Add(new MailAddress(studentApplication.StudentEmail, studentApplication.StudentName));
+            var body = $"Good Day {studentApplication.StudentName}, \n\n Your application was successful. Please proceed to registration.<br/><br/> Thank you";
 
+            EmailService emailService = new EmailService();
+            emailService.SendEmail(new EmailContent()
+            {
+                mailTo = mailTo,
+                mailCc = new List<MailAddress>(),
+                mailSubject = "Acceptance into Durban Girls Secondary School",
+                mailBody = body,
+                mailFooter = "<br/> <br/> <b>Durban Girls Secondary School</b>",
+                mailPriority = MailPriority.High,
+                mailAttachments = new List<Attachment>()
+
+            });
+        }
+        public static void SendDeclineEmail(Student studentApplication)
+        {
+            var mailTo = new List<MailAddress>();
+            mailTo.Add(new MailAddress(studentApplication.StudentEmail, studentApplication.StudentName));
+            var body = $"Good Day {studentApplication.StudentName}, \n\n Your application was unsuccessful. Please try again next year." +
+         $"<br/> <br/>Thank you";
+
+            EmailService emailService = new EmailService();
+            emailService.SendEmail(new EmailContent()
+            {
+                mailTo = mailTo,
+                mailCc = new List<MailAddress>(),
+                mailSubject = "Acceptance into Durban Girls Secondary School",
+                mailBody = body,
+                mailFooter = "<br/> <br/> <b>Durban Girls Secondary School</b>",
+                mailPriority = MailPriority.High,
+                mailAttachments = new List<Attachment>()
+
+            });
+        }
+        public static void SendApplicationEmail(Student studentApplication)
+        {
+            var mailTo = new List<MailAddress>();
+            mailTo.Add(new MailAddress(studentApplication.StudentEmail, studentApplication.StudentName));
+            var body = $"Good Day {studentApplication.StudentName}, \n\n We have received your application, please wait for approval." +
+         $"<br/><br/> Thank you";
+
+            EmailService emailService = new EmailService();
+            emailService.SendEmail(new EmailContent()
+            {
+                mailTo = mailTo,
+                mailCc = new List<MailAddress>(),
+                mailSubject = "Application Feedback",
+                mailBody = body,
+                mailFooter = "<br/> <br/> <b>Durban Girls Secondary School</b>",
+                mailPriority = MailPriority.High,
+                mailAttachments = new List<Attachment>()
+
+            });
+        }
         //public static string GetCustomerName(string customerEmail)
         //{
         //    var name = (from customer in db.Customers

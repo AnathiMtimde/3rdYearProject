@@ -44,11 +44,10 @@ namespace DGSappSem2.Models
                 mailCc = new List<MailAddress>(),
                 mailSubject = "Application Statement | Ref No.:" + studentApplication.StID,
                 mailBody = body,
-                mailFooter = "<br/> <br/> <b>New Era</b>",
+                mailFooter = "<br/> <br/> <b>Durban Girls Secondary School</b>",
                 mailPriority = MailPriority.High,
                 mailAttachments = attachments
             });
-        }
-
+        }        
     }
 }
