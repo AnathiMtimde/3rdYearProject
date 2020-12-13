@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:2020grp21rsaofficialserever.database.windows.net,1433;Initial Catalog=2020grp21rsaOfficialdb;Persist Security Info=False;User ID=Lungelo;Password=Lu12345#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Lungelo\\Downloads\\AppDevProject-main\\DGSappSem2\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="DGSappSem2.Models.ApplicationDbContext-Web.config Connection String" description="DGSappSem2.Models.ApplicationDbContext Connection String used in web.config by the application to access the database." defaultValue="DGSappSem2.Models.ApplicationDbContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Lungelo\\Downloads\\AppDevProject-main\\DGSappSem2\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DGSappSem2.Models.ApplicationDbContext']/@connectionString" />
+  </parameter>
+  <parameter name="DGSappSem2.Models.ApplicationDbContext_DatabasePublish-Web.config Connection String" description="DGSappSem2.Models.ApplicationDbContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="DGSappSem2.Models.ApplicationDbContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Lungelo\\Downloads\\AppDevProject-main\\DGSappSem2\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DGSappSem2.Models.ApplicationDbContext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

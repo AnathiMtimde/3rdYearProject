@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DGSappSem2.Models.Book>
+@using DGSappSem2.Models;
+
+@{
+    ViewBag.Title = "BooksView";
+    var penaltyCost= Logic.GetPenaltyCost(User.Identity.Name);
+}
+
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        height: 250px !important;
+        margin-bottom: 20px !important;
+        border: groove !important;
+    }
+
+    /*   .card:hover {
+            border-radius: 10px;
+            border-color: aqua !important;
+        }*/
+</style>
+<h2 style="text-align:center; padding-bottom:20px !important">Available Books</h2>
+
+@foreach (var item in Model)
+{
+
+    <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" src="holder.js/100x180/" alt="">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Book Titles </strong> : @Html.DisplayFor(x => item.Title)</h4>
+                <p class="card-text"> <strong>Author </strong> : @Html.DisplayFor(x => item.Author)</p>
+                <p class="card-text">
+                    <h5><strong>Brief Desciptiom : </strong></h5>
+                    @Html.DisplayFor(x => item.Description)
+                <p><strong>Book Status</strong> :  @Html.DisplayFor(x => item.Status)</p>
+                  <p><strong>Quantity Available</strong> :  @Html.DisplayFor(x => item.BookQuantity)</p>
+                @if (penaltyCost > 0)
+                {
+                    <p class="btn disabled btn-default"><strong>Pay Penalty To Proceed</strong></p>
+                }
+                else
+                {
+                    <p><a class="btn btn-success" onclick="location.href='@Url.Action("Create","BookReservations", new { id=item.BookId})'">Reserve Book </a></p>
+                }
+            </div>
+        </div>
+    </div>
+}

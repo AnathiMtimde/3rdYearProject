@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DGSappSem2s.Models.BookReservation>
+@using DGSappSem2.Models;
+
+@{
+
+    ViewBag.Title = "Index";
+    ViewBag.Penalties= Logic.GetPenaltyCost(User.Identity.Name);
+    var cost = Logic.GetPenaltyCost(User.Identity.Name);
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 style="text-align:center;">Book Reservations</h2>
+        <h4 class="hd" style="text-align:right !important;">Penalty Balance : R @ViewBag.Penalties </h4>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "BooksView", "Books")
+</p>
+<table class="table table-striped">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.BookId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @if (cost > 0)
+            {
+                <a class="btn btn-success" onclick="location.href='@Url.Action("OnceOff","Payment",new { amount= Logic.GetPenaltyCost(User.Identity.Name), studentEmail=User.Identity.Name})'">Pay Penalty</a>
+            }
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.BookId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReservationDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StudentEmail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CollectionDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReturnDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Status)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = item.ReservationId }) |
+
+
+        @if (item.Status == "Returned")
+        {
+            @Html.ActionLink("Vie Penalty", "Penalties", new { id = item.ReservationId })
+        }
+
+
+        @if (item.Status != "Returned")
+        {
+            @Html.ActionLink("Edit | ", "Edit", new { id = item.ReservationId })
+
+            @Html.ActionLink("ReturnBook", "ReturnBook", new { id = item.ReservationId })
+        }
+    </td>
+</tr>
+}
+
+</table>

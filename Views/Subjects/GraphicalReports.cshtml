@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<DGSappSem2.Models.ViewModel.SubjectVM>
+<style>
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 5px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50;
+    }
+
+        .button1:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2> @ViewBag.gradeName </h2>
+
+
+<table class="table">
+
+    <tr>
+        @foreach (var item in Model)
+        {
+
+   foreach (var term in item.termLists)
+    {
+    <td>
+
+
+        <a class="button button1" href="@Url.Action("SubjectReport", "Subjects", new {termId = term.TermID, classRoomId =  @ViewBag.classRoomId})">Term @term.Name Graphical Report </a>
+
+    </td>
+            }
+            break;
+        }
+        
+    </tr>
+    </table>

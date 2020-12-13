@@ -1,0 +1,103 @@
+﻿@model IEnumerable<AssessmentBusiness.Assessment>
+@*<style>
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button2 {
+        background-color: teal;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>*@
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Assessments</h2>
+<h3>@ViewBag.gradeName / @ViewBag.subjectName / Term @ViewBag.termName /</h3>
+
+
+<table class="table" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AssessmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContributionPercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayName("Feedback")
+        </th>
+        <th>
+            @Html.DisplayName("Assessment Document")
+        </th>
+        <th>
+            @Html.DisplayName("Submission")
+        </th>
+
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.AssessmentName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ContributionPercent)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DueDate)
+    </td>
+    <td>
+        @{ var feedback = DGSappSem2.Models.ViewModel.AssessmentVM.GetFeedback(item.AssessmentID); }
+
+        @feedback
+    </td>
+    <td>
+        <div class="btn-group">
+            <a class="btn btn-default" href="@Url.Action("OpenPDFMedDoc", "OnlineAssessments", new { id=item.AssessmentID },null)">
+                <span class="icon_lightbulb_alt"></span>
+                Download Assessment
+            </a>
+        </div>
+    </td>
+    <td>
+        <div class="btn-group">
+            <a class="btn btn-default" href="@Url.Action("Upload", "OnlineAssessments", new { assessmentID=item.AssessmentID },null)">
+                <span class="icon_lightbulb_alt"></span>
+                Upload Assessment
+            </a>
+        </div>
+    </td>
+
+    <td>
+        <a class="fa fa-edit" href="@Url.Action("Create", "StudentAssessments", new { classRoomId = item.Subject.ClassRoomID, assessmentId = item.AssessmentID})"> Capture Marks </a> ||
+        <a class="fa fa-eye" href="@Url.Action("MarksList", "StudentAssessments", new { classRoomId = item.Subject.ClassRoomID, assessmentId = item.AssessmentID})"><b> View Marks </b></a>
+
+    </td>
+</tr>
+    }
+
+</table>

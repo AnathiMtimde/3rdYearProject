@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DGSappSem2.Models.GroupRoom>
+@using DGSappSem2.Models;
+
+@{
+    ViewBag.Title = "Group Room View";
+}
+
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        height: 200px !important;
+        margin-bottom: 20px !important;
+        border: groove !important;
+    }
+
+    /*   .card:hover {
+            border-radius: 10px;
+            border-color: aqua !important;
+        }*/
+</style>
+<h2 style="text-align:center; padding-bottom:20px !important">Available Rooms</h2>
+
+@foreach (var item in Model)
+{
+
+    <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" src="holder.js/100x180/" alt="">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Room Number </strong> : @Html.DisplayFor(x => item.RoomNumber)</h4>
+                <p class="card-text"> <strong>Capacity to Host </strong> : @Html.DisplayFor(x => item.capacity)</p>
+                <p class="card-text">
+                    <h5><strong>Room Status : </strong>  @Html.DisplayFor(x => item.Status)</h5>
+                   </p>
+                <br/>
+                <p><a class="btn btn-success" onclick="location.href='@Url.Action("Create","GrpRoomReservations", new { id=item.GroupRoomId})'">Reserve Room </a></p>
+
+                @*<p><strong>Book Status</strong> :  @Html.DisplayFor(x => item.Status)</p>
+        <p><strong>Quantity Available</strong> :  @Html.DisplayFor(x => item.BookQuantity)</p>
+        @if (penaltyCost > 0)
+        {
+            <p class="btn disabled btn-default"><strong>Pay Penalty To Proceed</strong></p>
+        }
+        else
+        {
+            <p><a class="btn btn-success" onclick="location.href='@Url.Action("Create","BookReservations", new { id=item.BookId})'">Reserve Book </a></p>
+        }*@
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,34 @@
+﻿@model DGSappSem2.Models.LibraryTimes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LibraryTimes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.openingTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.openingTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.closingTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.closingTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LibraryTimesId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

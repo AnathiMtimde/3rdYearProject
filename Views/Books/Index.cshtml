@@ -1,0 +1,96 @@
+﻿@model IEnumerable<DGSappSem2.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Books</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped" id="my_list">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookCategory.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numpages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.BookQuantity)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QrCodeImage)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        <a><img src="data:image/png;base64,@Convert.ToBase64String(item.Picture, 0, item.Picture.Length)" style="width: 40px; height: 40px" alt="" /></a>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookCategory.CategoryName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Author)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Numpages)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Genre)
+    </td>
+       <td>
+        @Html.DisplayFor(modelItem => item.BookQuantity)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Status)
+    </td>
+    <td colspan="2">
+        @if (item.QrCodeImage != null)
+        {
+            <p style="text-align:center">
+                <img alt="" src="data:image/png;base64,@Convert.ToBase64String(item.QrCodeImage, 0, item.QrCodeImage.Length)" width="50" height="50" />
+            </p>
+        }
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DGSappSem2.Models.GrpRoomReservation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReserved)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DateFor)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.TimeIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReserved)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.DateFor)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeOut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GrpRoomReservationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GrpRoomReservationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GrpRoomReservationId })
+        </td>
+    </tr>
+}
+
+</table>

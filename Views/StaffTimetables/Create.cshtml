@@ -1,0 +1,438 @@
+@model DGSappSem2.Models.Staffs.StaffTimetable
+
+@{
+    ViewBag.Title = "Create";
+}
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="w3-container w3-center">
+        <h1>CREATE TIME TABLE</h1>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="w3-container w3-center">
+
+            @Html.LabelFor(model => model.StaffId, "StaffId")
+
+            @Html.DropDownList("StaffId", null, htmlAttributes: new { })
+            @Html.ValidationMessageFor(model => model.StaffId, "", new { @class = "text-danger" })
+
+        </div>
+        <br>
+        <div class="w3-container w3-center">
+
+            @Html.LabelFor(model => model.Term)
+
+            @Html.DropDownListFor(time => time.Term,
+       new[] { new SelectListItem { Text = "Term 1", Value = "Term 1" },
+               new SelectListItem { Text = "Term 2", Value = "Term 2" },
+               new SelectListItem { Text = "Term 3", Value = "Term 3" },
+               new SelectListItem { Text = "Term 4", Value = "Term 4" }
+       })
+        
+        </div>
+        <br>
+        <div class="w3-container w3-center">
+            <table border="5" cellspacing="0" align="center">
+                <!--<caption>Timetable</caption>-->
+
+
+                <tr>
+
+                    <td align="center" height="50"
+                        width="100">
+                        <br>
+                        <b>Day/Period</b>
+                    </td>
+                    <td align="center" height="50"
+                        width="100">
+                        <b>I<br>8:00-9:00</b>
+                    </td>
+                    <td align="center" height="50"
+                        width="100">
+                        <b>II<br>9:00-10:00</b>
+                    </td>
+                    <td align="center" height="50"
+                        width="100">
+                        <b>III<br>10:00-11:00</b>
+                    </td>
+                    <td align="center" height="50"
+                        width="100">
+                        <b>11:00-12:00</b>
+                    </td>
+                    <td align="center" height="50"
+                        width="100">
+                        <b>IV<br>12:00-1:00</b>
+                    </td>
+                    <td align="center" height="50"
+                        width="100">
+                        <b>V<br>1:00-2:00</b>
+                    </td>
+                    <td align="center" height="50"
+                        width="100">
+                        <b>VI<br>2:00-3:00</b>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td align="center" height="50">
+                        <b>Monday</b>
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.M1,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+     
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.M2,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.M3,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td rowspan="6" align="center" height="50">
+                        <h2>L<br>U<br>N<br>C<br>H</h2>
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.M4,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.M5,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.M6,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="50">
+                        <b>Tuesday</b>
+                    </td>
+
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.T1,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.T2,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.T3,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.T4,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.T5,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.T6,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="50">
+                        <b>Wednesday</b>
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.W1,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.W2,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.W3,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.W4,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.W5,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.W6,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+
+                </tr>
+                <tr>
+                    <td align="center" height="50">
+                        <b>Thursday</b>
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.Th1,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.Th2,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.Th3,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.Th4,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.Th5,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.Th6,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+
+                </tr>
+                <tr>
+                    <td align="center" height="50">
+                        <b>Friday</b>
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.F1,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.F2,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.F3,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.F4,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.F5,
+               new[] { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+                    <td align="center" height="50">
+                        @Html.DropDownListFor(time => time.F6,
+               new[]  { new SelectListItem { Text = "Free", Value = "Free" },
+                       new SelectListItem { Text = "Grade 8", Value = "Grade 8" },
+                       new SelectListItem { Text = "Grade 9", Value = "Grade 9" },
+                       new SelectListItem { Text = "Grade 10", Value = "Grade 10" },
+                       new SelectListItem { Text = "Grade 11", Value = "Grade 11" },
+                       new SelectListItem { Text = "Grade 12", Value = "Grade 12" },
+               })
+                    </td>
+
+                </tr>
+
+
+
+            </table>
+        </div>
+        <br>
+        <div class="w3-container w3-center">
+            <input type="submit" value="Create" class="w3-button w3-black" style="width:33.3%" />
+            <a class="btn btn-default" href="@Url.Action("Index","StaffTimetables")">
+                <i class="fa fa-angle-left"></i>
+                Back to List
+            </a>
+        </div>
+
+    }
+</body>
+
+</html>
+
+

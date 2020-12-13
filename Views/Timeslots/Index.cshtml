@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DGSappSem2.Models.Timeslot>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Group Room Booking Time Slots</h2>
+
+<p>
+    @Html.ActionLink("Add New", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Time_Slot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeTpe)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time_Slot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeTpe)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TimeslotId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TimeslotId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TimeslotId })
+        </td>
+    </tr>
+}
+
+</table>
