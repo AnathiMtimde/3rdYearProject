@@ -210,10 +210,11 @@
     <Compile Include="Controllers\LibraryTimesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OnlineAssessmentsController.cs" />
-    <Compile Include="Controllers\RegistrationPayment.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\PaypalController.cs" />
     <Compile Include="Controllers\PenaltyCostsController.cs" />
+    <Compile Include="Controllers\RegistrationPaymentsController.cs" />
+    <Compile Include="Controllers\SchoolDepositsController.cs" />
     <Compile Include="Controllers\StaffAttendancesController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\StudentAssessmentsController.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="Models\PenaltyCost.cs" />
     <Compile Include="Models\RegistrationPayment.cs" />
     <Compile Include="Models\ReservationPenalty.cs" />
+    <Compile Include="Models\SchoolDeposit.cs" />
     <Compile Include="Models\Services\Emai_Service.cs" />
     <Compile Include="Models\Shipping_Address.cs" />
     <Compile Include="Models\StudentDebt.cs" />
@@ -832,6 +834,11 @@
     <Content Include="Views\OnlineAssessments\StudentSubjectList.cshtml" />
     <Content Include="Views\OnlineAssessments\AssessmentList.cshtml" />
     <Content Include="Views\OnlineAssessments\Upload.cshtml" />
+    <Content Include="Views\SchoolDeposits\Create.cshtml" />
+    <Content Include="Views\SchoolDeposits\Delete.cshtml" />
+    <Content Include="Views\SchoolDeposits\Details.cshtml" />
+    <Content Include="Views\SchoolDeposits\Edit.cshtml" />
+    <Content Include="Views\SchoolDeposits\Index.cshtml" />
     <None Include="Views\StaffTimetables\Create.cshtml" />
     <None Include="Views\StaffTimetables\Delete.cshtml" />
     <None Include="Views\StaffTimetables\Details.cshtml" />
@@ -1000,6 +1007,7 @@
     <Folder Include="Content1\AdminLayout\assets\morris.js-0.4.3\spec\support\" />
     <Folder Include="Content1\AdminLayout\assets\morris.js-0.4.3\spec\vendor\" />
     <Folder Include="Content\Uploads\" />
+    <Folder Include="Views\RegistrationPayments\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

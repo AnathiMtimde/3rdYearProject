@@ -125,13 +125,15 @@ namespace DGSappSem2.Controllers
             student.StudentPermitURL = StudentPermitURL.FileName;
 
             student.StudentAllowReg = false;
-
+            student.Status = "Pending";
             var user = new ApplicationUser { UserName = student.StudentEmail, Email = student.StudentEmail };
             string pwd = "@User001";
             var result = await UserManager.CreateAsync(user, pwd);
+          
             Logic.CreateAccount(student.StudentEmail);
             db.students.Add(student);
             db.SaveChanges();
+            EmailSender1.SendApplicationEmail(student);
             UserManager.AddToRole(user.Id, "Student");
             TempData["AlertMessage"] = "All your details have been successfully captured and the form has been submitted.\n" +
                 "Please wait for your details to be verified, this may take up to a week and if you are accepted then you will receive a email indicating that you may proceed to registration.\n" +
@@ -164,10 +166,12 @@ namespace DGSappSem2.Controllers
         {
             if (ModelState.IsValid)
             {
+                student.Status = "Accepted";
                 student.StudentAllowReg = true;
                 db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", "EmailSetup");
+                EmailSender1.SendAcceptanceEmail(student);
+                return RedirectToAction("Index");
             }
             return View(student);
         }
@@ -195,7 +199,8 @@ namespace DGSappSem2.Controllers
             Student student = db.students.Find(id);
             db.students.Remove(student);
             db.SaveChanges();
-            return RedirectToAction("decline", "EmailSetup");
+            EmailSender1.SendDeclineEmail(student);
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
